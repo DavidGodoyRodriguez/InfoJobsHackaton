@@ -5,12 +5,15 @@ public with sharing class RecruitmentFacade {
         return recruitmentConnector.getOffer(offerId);
     }
 
-    public static List<RecruitmentDTO.Curriculum> getCurriculum(Set<String> curriculumIds) {
+    public static List<Curriculum__c> getCurriculum(Set<String> curriculumIds) {
         //IRecruitmentConnector recruitmentConnector = InfoJobsConnector.getInstance();
         //return recruitmentConnector.getCurriculums(curriculumIds);
+        // Instead of returning RecruitmentDTO.Curriculum, I will return Salesforce Objects from the database for simplicity
+        // And also because of privacy restrictions in the InfoJobs API
+        
         
 
-
+        return null;
     }
 
 }
