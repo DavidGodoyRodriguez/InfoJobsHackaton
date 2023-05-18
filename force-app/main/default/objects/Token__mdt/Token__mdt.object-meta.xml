@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Metadata to store Tokens needed to authenticate for the API Integrations.</description>
+    <label>Token</label>
+    <pluralLabel>Tokens</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>
