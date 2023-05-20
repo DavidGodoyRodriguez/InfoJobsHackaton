@@ -13,6 +13,7 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>InfoJobs Hackathon</label>
     <navType>Standard</navType>
+    <tabs>Candidates_Selector</tabs>
     <tabs>Curriculum__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>InfoJobs_Hackathon_UtilityBar</utilityBar>

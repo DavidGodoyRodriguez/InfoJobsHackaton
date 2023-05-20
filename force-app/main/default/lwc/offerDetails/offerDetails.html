@@ -1,0 +1,35 @@
+<template>
+    <lightning-card tittle="Oferta">
+        <lightning-layout>
+            <lightning-layout-item size="6" padding="horizontal-small">
+                <lightning-input type="text" label="Introduce el Id de la oferta en la que quieres trabajar:" value={offerId}  onchange={inputChange}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="3" padding="horizontal-small" class="slds-m-top_large">
+                <lightning-button variant="brand" label="Cargar oferta" title="Cargar oferta" onclick={getOffer}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+
+        <lightning-layout multiple-rows if:true={offer}>
+            <lightning-layout-item size="6" padding="around-small">
+                <table>
+                    <tr>
+                        <td class="slds-box slds-box_x-small">Titulo</td>
+                        <td class="slds-box slds-box_x-small">{offer.title}</td>
+                    </tr>
+                    <tr>
+                        <td class="slds-box slds-box_x-small">Ciudad</td>
+                        <td class="slds-box slds-box_x-small">{offer.city}</td>
+                    </tr>
+                    <tr>
+                        <td class="slds-box slds-box_x-small">Applicantes</td>
+                        <td class="slds-box slds-box_x-small">{offer.applications}</td>
+                    </tr>
+                    <tr>
+                        <td class="slds-box slds-box_x-small">Descripción</td>
+                        <td class="slds-box slds-box_x-small"><lightning-formatted-text value={offer.description}></lightning-formatted-text></td>
+                    </tr>
+                </table>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card> 
+</template>

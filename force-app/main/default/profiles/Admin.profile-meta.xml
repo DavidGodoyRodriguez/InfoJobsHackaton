@@ -221,6 +221,10 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <tabVisibilities>
+        <tab>Candidates_Selector</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Curriculum__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
