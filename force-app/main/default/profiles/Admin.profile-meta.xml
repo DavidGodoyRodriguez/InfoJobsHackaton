@@ -6,11 +6,19 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>ILLMConnector</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>IRecruitmentConnector</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>InfoJobsConnector</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LLMDTO</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
