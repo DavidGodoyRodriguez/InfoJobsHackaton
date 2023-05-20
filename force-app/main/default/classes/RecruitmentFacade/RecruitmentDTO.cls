@@ -1,10 +1,10 @@
 public with sharing class RecruitmentDTO {
     public class Offer {
         public String id;
-        public String title;
-        public String city;
-        public String description;
-        public Integer applications;
+        @AuraEnabled public String title;
+        @AuraEnabled public String city;
+        @AuraEnabled public String description;
+        @AuraEnabled public Integer applications;
     }
 
     // Because all below data is not accessible because of privacy restrictions, we are going to mock up the data with test data
