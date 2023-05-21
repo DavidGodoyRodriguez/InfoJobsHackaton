@@ -12,9 +12,7 @@
             </lightning-card>
         </lightning-layout-item>
         <lightning-layout-item size="12" class="slds-p-top_medium" if:true={displayCandidatesAndChat}>
-            <lightning-card>
-                Hello world!
-            </lightning-card>
+            <c-candidate-details curriculums={curriculums} selected-curriculum-id={selectedCurriculumId}></c-candidate-details>
         </lightning-layout-item>
     </lightning-layout>
 </template>

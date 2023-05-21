@@ -6,7 +6,7 @@ export default class RecruitmentSelector extends LightningElement {
 
     displayCandidatesAndChat = false;
     @track curriculums;
-    selectedCurriculum;
+    selectedCurriculumId;
 
     onOfferRetrieved() {
         this.displayCandidatesAndChat = true;
@@ -14,7 +14,7 @@ export default class RecruitmentSelector extends LightningElement {
     }
 
     candidateSelected(event) {
-        this.selectedCurriculum = event.detail.curriculumId;
+        this.selectedCurriculumId = event.detail.curriculumId;
     }
 
     getCurriculums() {

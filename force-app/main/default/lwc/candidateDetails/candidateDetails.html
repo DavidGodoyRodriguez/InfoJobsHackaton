@@ -1,0 +1,81 @@
+<template>
+    <lightning-card>
+        <lightning-layout>
+            <lightning-layout-item size="6" class="slds-p-right_x-small slds-box slds-box_x-small">
+                <lightning-card title="Detalles del Candidato">
+                    <div if:true={curriculum}>
+                        <table>
+                            <tr>
+                                <td class="slds-box slds-box_x-small">Nombre</td>
+                                <td class="slds-box slds-box_x-small">{curriculum.Name__c}&nbsp;{curriculum.Surname1__c}&nbsp;{curriculum.Surname2__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="slds-box slds-box_x-small">Teléfono</td>
+                                <td class="slds-box slds-box_x-small">{curriculum.Phone__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="slds-box slds-box_x-small">País</td>
+                                <td class="slds-box slds-box_x-small">{curriculum.Country__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="slds-box slds-box_x-small">Ciudad</td>
+                                <td class="slds-box slds-box_x-small">{curriculum.City__c}</td>
+                            </tr>
+                            <tr>
+                                <td class="slds-box slds-box_x-small">Descripción</td>
+                                <td class="slds-box slds-box_x-small"><lightning-formatted-text value={curriculum.CVText__c}></lightning-formatted-text></td>
+                            </tr>
+                            <tr>
+                                <td class="slds-box slds-box_x-small">Experiencia</td>
+                                <td class="slds-box slds-box_x-small">
+                                    <template for:each={curriculum.Experiences__r} for:item="experience">
+                                        <div class="slds-text-heading_small" key={experience.Id}>Empresa: {experience.Company__c}</div>
+                                        Puesto: {experience.Job__c} <br key={experience.Id}>
+                                        Descripción: {experience.Description__c} <br key={experience.Id}>
+                                        Fechas: {experience.Starting_Date__c} - {experience.Finishing_Date__c}
+                                    </template>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="slds-box slds-box_x-small">Estudios</td>
+                                <td class="slds-box slds-box_x-small">
+                                    <template for:each={curriculum.Educations__r} for:item="education">
+                                        <div class="slds-text-heading_small" key={education.Id}>Institución: {education.Institution_Name__c}</div>
+                                        Curso: {education.Course_Name__c} <br key={education.Id}>
+                                        Nivel académico: {education.Education_Level__c} <br key={education.Id}>
+                                        Fecha: {education.Finishing_Date__c}
+                                    </template>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="slds-box slds-box_x-small">Idiomas</td>
+                                <td class="slds-box slds-box_x-small">
+                                    <template for:each={curriculum.Skill_Language__r} for:item="language">
+                                        <div class="slds-text-heading_small" key={language.Id}>Institución: {language.Language__c}</div>
+                                        Nivel de lectura: {language.Reading__c} <br key={language.Id}>
+                                        Nivel de habla: {language.Speaking__c} <br key={language.Id}>
+                                        Nivel de escritura: {language.Writing__c}
+                                    </template>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="slds-box slds-box_x-small">Idiomas</td>
+                                <td class="slds-box slds-box_x-small">
+                                    <template for:each={curriculum.Skill_Expertises__r} for:item="expertise">
+                                        <div class="slds-text-heading_small" key={expertise.Id}>Capacidad: {expertise.Skill__c}</div>
+                                        Nivel: {expertise.Level__c}
+                                    </template>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </lightning-card>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" class="slds-p-left_x-small slds-box slds-box_x-small">
+                <lightning-card title="Valoración de GPT">
+                    
+                </lightning-card>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

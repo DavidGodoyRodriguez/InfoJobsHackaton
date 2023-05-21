@@ -1,7 +1,6 @@
 import { LightningElement, api } from 'lwc';
 
 export default class CandidateList extends LightningElement {
-
     @api curriculums;
 
     candidateSelected(event) {
