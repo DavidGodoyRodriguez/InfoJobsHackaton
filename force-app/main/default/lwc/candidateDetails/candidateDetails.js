@@ -6,7 +6,6 @@ export default class CandidateDetails extends LightningElement {
 
     get curriculum() {
         for (let curriculumItem of this.curriculums) {
-            console.log(curriculumItem.Id);
             if (curriculumItem.Id === this.selectedCurriculumId) {
                 return curriculumItem;
             }

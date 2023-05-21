@@ -7,9 +7,7 @@
             <c-candidate-list curriculums={curriculums} oncandidateselected={candidateSelected}></c-candidate-list>
         </lightning-layout-item>
         <lightning-layout-item size="6" class="slds-p-left_x-small" if:true={displayCandidatesAndChat}>
-            <lightning-card>
-                Hello world!
-            </lightning-card>
+            <c-gpt-analysis curriculums={curriculums} onanalysisran={analysisRan}></c-gpt-analysis>
         </lightning-layout-item>
         <lightning-layout-item size="12" class="slds-p-top_medium" if:true={displayCandidatesAndChat}>
             <c-candidate-details curriculums={curriculums} selected-curriculum-id={selectedCurriculumId}></c-candidate-details>

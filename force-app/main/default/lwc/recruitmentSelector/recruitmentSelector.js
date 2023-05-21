@@ -1,12 +1,13 @@
 import { LightningElement, track } from 'lwc';
-import getCurriculumsBackend from '@salesforce/apex/RecruitmentChatController.getCurriculums';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import getCurriculumsBackend from '@salesforce/apex/RecruitmentChatController.getCurriculums';
 
 export default class RecruitmentSelector extends LightningElement {
 
     displayCandidatesAndChat = false;
     @track curriculums;
     selectedCurriculumId;
+    assistantAnalysis;
 
     onOfferRetrieved() {
         this.displayCandidatesAndChat = true;
@@ -17,11 +18,14 @@ export default class RecruitmentSelector extends LightningElement {
         this.selectedCurriculumId = event.detail.curriculumId;
     }
 
+    analysisRan(event) {
+        this.assistantAnalysis = event.detail.assistantAnalysis;
+    }
+
     getCurriculums() {
         getCurriculumsBackend()
         .then(result =>{
             this.curriculums = result;
-            console.log(this.curriculums);
         })
         .catch(error =>{
             const evt = new ShowToastEvent({

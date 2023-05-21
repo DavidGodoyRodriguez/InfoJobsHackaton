@@ -1,6 +1,7 @@
 public with sharing class RecruitmentChatController {
     
     public class RecruitmentAssistant {
+        @AuraEnabled public Id curriculumId;
         @AuraEnabled public String description;
         @AuraEnabled public Boolean result;
     }
@@ -45,7 +46,7 @@ public with sharing class RecruitmentChatController {
 
             List<LLMDTO.Message> chatMessages = new List<LLMDTO.Message>{systemMessage, userMessage};
             LLMDTO.Message chatCompletion = LLMFacade.getChatCompletion(chatMessages);
-            return transformChatCompletionToRecruitmentAssistant(chatCompletion);
+            return transformChatCompletionToRecruitmentAssistant(curriculum.Id, chatCompletion);
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
@@ -85,10 +86,11 @@ public with sharing class RecruitmentChatController {
         return curriculumText;
     }
 
-    public static RecruitmentAssistant transformChatCompletionToRecruitmentAssistant(LLMDTO.Message chatCompletion) {
+    public static RecruitmentAssistant transformChatCompletionToRecruitmentAssistant(Id curriculumId, LLMDTO.Message chatCompletion) {
         String jsonResult = chatCompletion.content;
         Map<String, Object> deserializedResult = (Map<String, Object>) JSON.deserializeUntyped(jsonResult);
         RecruitmentAssistant recruitmentAssistant = new RecruitmentAssistant();
+        recruitmentAssistant.curriculumId = curriculumId;
         recruitmentAssistant.description = (String) deserializedResult.get('description');
         recruitmentAssistant.result = (Boolean) deserializedResult.get('result');
         return recruitmentAssistant;

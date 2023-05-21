@@ -1,0 +1,14 @@
+<template>
+    <lightning-spinner alternative-text="Loading" size="medium" if:true={spinner}></lightning-spinner>
+    <lightning-card title="Analysis IA">
+        <lightning-textarea name="gptInput" 
+                label="Introduce los criterios que los candidatos deben cumplir" 
+                class="textAreaBody slds-p-horizontal_medium"
+                onchange={updateFields}></lightning-textarea>
+                <lightning-button variant="brand"
+                        label="Analizar candidatos" 
+                        title="Analizar candidatos" 
+                        onclick={runAnalysis}
+                        class="slds-p-around_medium"></lightning-button>
+    </lightning-card>
+</template>
