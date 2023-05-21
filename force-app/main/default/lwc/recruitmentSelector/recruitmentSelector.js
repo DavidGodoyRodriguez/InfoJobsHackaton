@@ -20,6 +20,7 @@ export default class RecruitmentSelector extends LightningElement {
 
     analysisRan(event) {
         this.assistantAnalysis = event.detail.assistantAnalysis;
+        this.template.querySelector('c-candidate-list').setAssistantAnalysis(this.assistantAnalysis);
     }
 
     getCurriculums() {

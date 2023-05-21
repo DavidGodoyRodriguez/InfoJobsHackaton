@@ -73,7 +73,13 @@
             </lightning-layout-item>
             <lightning-layout-item size="6" class="slds-p-left_x-small slds-box slds-box_x-small">
                 <lightning-card title="Valoración de GPT">
-                    
+                    <div if:true={analysis}>
+                        <table>
+                            <tr>
+                                <td class="slds-box slds-box_x-small"><lightning-formatted-text value={analysis.description}></lightning-formatted-text></td>
+                            </tr>
+                        </table>
+                    </div>
                 </lightning-card>
             </lightning-layout-item>
         </lightning-layout>

@@ -2,8 +2,10 @@
     <lightning-card title="Lista de Candidatos">
         <lightning-layout multiple-rows>
             <template for:each={curriculums} for:item="curriculum">
-                <lightning-layout-item size="12" class="slds-box slds-box_x-small slds-list_horizontal" key={curriculum.Id}>
-                    <lightning-input type="checkbox" data-id={curriculum.Id} name={curriculum.Id} onchange={candidateSelected}></lightning-input> {curriculum.Name__c}&nbsp;{curriculum.Surname1__c}&nbsp;{curriculum.Surname2__c}
+                <lightning-layout-item size="12" class="slds-box slds-box_x-small" key={curriculum.Id}>
+                    <div class="slds-list_horizontal" data-id={curriculum.Id}>
+                        <lightning-input type="checkbox" data-id={curriculum.Id} name={curriculum.Id} onchange={candidateSelected}></lightning-input> {curriculum.Name__c}&nbsp;{curriculum.Surname1__c}&nbsp;{curriculum.Surname2__c}
+                    </div>
                 </lightning-layout-item>
             </template>
         </lightning-layout>

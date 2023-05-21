@@ -10,7 +10,7 @@
             <c-gpt-analysis curriculums={curriculums} onanalysisran={analysisRan}></c-gpt-analysis>
         </lightning-layout-item>
         <lightning-layout-item size="12" class="slds-p-top_medium" if:true={displayCandidatesAndChat}>
-            <c-candidate-details curriculums={curriculums} selected-curriculum-id={selectedCurriculumId}></c-candidate-details>
+            <c-candidate-details curriculums={curriculums} selected-curriculum-id={selectedCurriculumId} assistant-analysis={assistantAnalysis}></c-candidate-details>
         </lightning-layout-item>
     </lightning-layout>
 </template>
