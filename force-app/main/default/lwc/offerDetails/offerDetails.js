@@ -14,6 +14,9 @@ export default class OfferDetails extends LightningElement {
         getOfferBackend({offerId: this.offerId})
         .then(result =>{
             this.offer = result;
+            this.dispatchEvent(new CustomEvent('retrieve', {
+                detail: {}
+            }));
         })
         .catch(error =>{
             const evt = new ShowToastEvent({
@@ -24,8 +27,6 @@ export default class OfferDetails extends LightningElement {
             this.dispatchEvent(evt);
             console.error(error);
         })
-
-
     }
 
 }
