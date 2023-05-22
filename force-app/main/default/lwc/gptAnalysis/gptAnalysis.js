@@ -1,8 +1,9 @@
 import { LightningElement, api } from 'lwc';
 import getLLMAnalysisBackend from '@salesforce/apex/RecruitmentChatController.getLLMAnalysis';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class GptAnalysis extends LightningElement {
-    spinner = false;
+    loading = false;
     @api curriculums;
     curriculumsCopy;
     requiredCapacities;
@@ -13,7 +14,7 @@ export default class GptAnalysis extends LightningElement {
     }
 
     runAnalysis() {
-        this.spinner = true;
+        this.loading = true;
         this.assistantAnalysis = [];
         this.curriculumsCopy = [...this.curriculums];
         this.getNextAnalysis();
@@ -23,7 +24,7 @@ export default class GptAnalysis extends LightningElement {
         if (this.curriculumsCopy.length > 0) {
             this.getNextAnalysisFromBackend();
         } else {
-            this.spinner = false;
+            this.loading = false;
             this.dispatchEvent(new CustomEvent('analysisran', {
                 detail: {assistantAnalysis: this.assistantAnalysis}
             }));
@@ -37,10 +38,10 @@ export default class GptAnalysis extends LightningElement {
             this.getNextAnalysis();
         })
         .catch(error =>{
-            this.spinner = false;
+            this.loading = false;
             const evt = new ShowToastEvent({
-                title: 'Error on offer component',
-                message: error.body.message,
+                title: 'Error on gpt component',
+                message: 'Check the console for more details',
                 variant: 'error',
             });
             this.dispatchEvent(evt);

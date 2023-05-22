@@ -1,5 +1,5 @@
 <template>
-    <lightning-spinner alternative-text="Loading" size="medium" if:true={spinner}></lightning-spinner>
+    <lightning-spinner alternative-text="Loading" size="large" variant="brand" if:true={loading} class="slds-is-relative"></lightning-spinner>
     <lightning-card title="Analysis IA">
         <lightning-textarea name="gptInput" 
                 label="Introduce los criterios que los candidatos deben cumplir" 
@@ -9,6 +9,7 @@
                         label="Analizar candidatos" 
                         title="Analizar candidatos" 
                         onclick={runAnalysis}
+                        disabled={loading}
                         class="slds-p-around_medium"></lightning-button>
     </lightning-card>
 </template>

@@ -30,8 +30,8 @@ export default class RecruitmentSelector extends LightningElement {
         })
         .catch(error =>{
             const evt = new ShowToastEvent({
-                title: 'Error on offer component',
-                message: error.body.message,
+                title: 'Error on base component',
+                message: 'Check the console for more details',
                 variant: 'error',
             });
             this.dispatchEvent(evt);
