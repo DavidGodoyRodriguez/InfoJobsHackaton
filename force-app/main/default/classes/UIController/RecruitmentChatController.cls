@@ -37,14 +37,39 @@ public with sharing class RecruitmentChatController {
             'incluyendo 2 apartados, uno con tu valoración y con key \'description\' y otro que sea un Boolean de si ha pasado la ' + 
             'valoración con key \'result\'. Asegurate de devolver tu resultado unicamente en JSON.';
             systemMessage.role = 'system';
+            
+            LLMDTO.Message trainingUserMessage1 = new LLMDTO.Message();
+            trainingUserMessage1.content = 'Capacidades: ```Identifica si el candidato tiene experiencia con herramientas software de telecomunicaciones y si ' +
+            'tiene experiencia con Python.```. Curriculum:```Desarrollador de Python, con experiencia trabajando con herramientas de configuración de redes móviles 5G```.';
+            trainingUserMessage1.role = 'user';
+            LLMDTO.Message trainingAssistantMessage1 = new LLMDTO.Message();
+            trainingAssistantMessage1.content = '{"description": "El candidato cumple con las capacidades al tener experiencia como desarrollador de Python y ' + 
+            'haber trabajado con redes 5G lo cual se considera experiencia con software de telecomunicaciones.", "result": true}';
+            trainingAssistantMessage1.role = 'assistant';
 
+            LLMDTO.Message trainingUserMessage2 = new LLMDTO.Message();
+            trainingUserMessage2.content = 'Capacidades: ```Identifica si el candidato tiene experiencia habiendo trabajado dando soporte a usuarios y si ' +
+            'tiene experiencia con Javascript.```. Curriculum:```Desarrollador React con experiencia diseñando y creando páginas web dinámicas y siempre' + 
+            ' poniendo en primer lugar la experiencia de usuario```.';
+            trainingUserMessage2.role = 'user';
+            LLMDTO.Message trainingAssistantMessage2 = new LLMDTO.Message();
+            trainingAssistantMessage2.content = '{"description": "El candidato cumple con experiencia en Javascript al haber trabajado con el framework de Javascript React, ' + 
+            'pero no especifica si tiene experiencia trabajando dando soporte a usuarios.", "result": false}';
+            trainingAssistantMessage2.role = 'assistant';
 
             LLMDTO.Message userMessage = new LLMDTO.Message();
             userMessage.content = String.format('Capacidades: ```{0}```. Curriculum:```{1}```.', 
                 new List<String>{requiredCapacities, transformCurriculumToText(curriculum)});
             userMessage.role = 'user';
 
-            List<LLMDTO.Message> chatMessages = new List<LLMDTO.Message>{systemMessage, userMessage};
+            List<LLMDTO.Message> chatMessages = new List<LLMDTO.Message>{
+                systemMessage, 
+                trainingUserMessage1,
+                trainingAssistantMessage1,
+                trainingUserMessage2,
+                trainingAssistantMessage2,
+                userMessage
+            };
             LLMDTO.Message chatCompletion = LLMFacade.getChatCompletion(chatMessages);
             return transformChatCompletionToRecruitmentAssistant(curriculum.Id, chatCompletion);
         } catch (Exception e) {
