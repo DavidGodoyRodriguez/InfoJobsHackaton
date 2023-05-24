@@ -5,11 +5,13 @@
                 label="Introduce los criterios que los candidatos deben cumplir" 
                 class="textAreaBody slds-p-horizontal_medium"
                 onchange={updateFields}></lightning-textarea>
-                <lightning-button variant="brand"
-                        label="Analizar candidatos" 
-                        title="Analizar candidatos" 
-                        onclick={runAnalysis}
-                        disabled={loading}
-                        class="slds-p-around_medium"></lightning-button>
+        <div class="slds-list_horizontal slds-p-around_medium">
+            <lightning-button variant="brand"
+                label="Analizar candidatos" 
+                title="Analizar candidatos" 
+                onclick={runAnalysis}
+                disabled={buttonDisabled}></lightning-button>
+            <div if:true={showCounter} class="slds-p-left_medium">{timeVal}</div>
+        </div>
     </lightning-card>
 </template>
