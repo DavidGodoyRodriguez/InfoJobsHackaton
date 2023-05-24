@@ -1,0 +1,26 @@
+<apex:page standardStylesheets="true" sidebar="false" applyBodyTag="false" showHeader="false">
+  <header>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  </header>
+  <style>
+    @page {
+      margin-top: 1.5in;
+      @top-center {
+        content: element(header);
+      }
+    }
+    div.header {
+      position: running(header);
+    }
+  </style>
+  <div class="header">
+    <center><img src="{!$Resource.InfoJobsLogo}" width="25%"/></center>
+  </div>
+  <apex:includeLightning />
+  <div id="LightningComponentId" />
+  <script>
+    $Lightning.use("c:RecruitmentSelector_App", function() {
+      $Lightning.createComponent("c:RecruitmentSelector", {}, "LightningComponentId")
+    });
+  </script>
+</apex:page>
