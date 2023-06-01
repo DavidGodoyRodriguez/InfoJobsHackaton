@@ -19,6 +19,14 @@ Pero esta idea se podría perfectamente implentar en una aplicación web indepen
 - LWC
 - OpenAI API
 
+## Implementación y Arquitectura
+Si es la primera vez que que analizas un proyecto en Salesforce, aquí te explico cuales son las partes más importantes que mirar en el código para entender la implementación de este proyecto para la InfoJobs Hackathon:
+
+- Path: force-app/main/default/lwc. Aquí se encuentra todo el código HTML, CSS y Javascript. Se ha usado como framework LWC que es un framework JS propietario de Salesforce que permite el desarrollo de Web Components. Es similar a otros frameworks como React, Angular o Vue.
+- Path: force-app/main/default/classes. Aquí se encuentra el código backend. Usando Apex que es un lenguage de programación propietario de Salesforce basado en Java. Aquí se definen las integraciones con las APIs de InfoJobs y OpenAI, así como la provisión de los datos al Front End. Sigue el patrón Model/View/Controller y también se han seguido principios como Separation of Concerns y Arquitectura Hexagonal para la distribución de clases.
+
+> Hay bastantes cosillas por pulir.
+
 ## Prueba de la aplicación web
 
 ### Seleccionar Oferta
